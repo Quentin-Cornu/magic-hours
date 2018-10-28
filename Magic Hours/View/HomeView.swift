@@ -18,47 +18,57 @@ class HomeView: UIView {
     private let validateButtonSize: CGFloat = 100
     private let topButtonMargin: CGFloat = 60
     private let sideButtonMargin: CGFloat = 20
-    private let topButtonSize: CGFloat = 50
+    private let topButtonSize: CGFloat = 40
 
     // MARK: - SubViews
     
+    private let hourLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 34, weight: .semibold)
+        label.textAlignment = .center
+        label.text = "No Text"
+        return label
+    }()
+    
     private let energyCell: Cell = {
         let cell = Cell()
-        cell.setBackgroundColor(color: UIColor.blue)
+        cell.setBackgroundColor(color: UIColor.lightGray)
         cell.setTitle(title: "Energy")
         return cell
     }()
     
     private let focusCell: Cell = {
         let cell = Cell()
-        cell.setBackgroundColor(color: UIColor.red)
+        cell.setBackgroundColor(color: UIColor.lightGray)
         cell.setTitle(title: "Focus")
         return cell
     }()
     
     private let motivationCell: Cell = {
         let cell = Cell()
-        cell.setBackgroundColor(color: UIColor.yellow)
+        cell.setBackgroundColor(color: UIColor.lightGray)
         cell.setTitle(title: "Motivation")
         return cell
     }()
     
     private let dataButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor.black
+        button.setImage(UIImage(named: "burger"), for: .normal)
+        button.addTarget(self, action: #selector(handleDataTap), for: .touchUpInside)
         return button
     }()
     
     private let statButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor.black
+        button.setImage(UIImage(named: "stats"), for: .normal)
+        button.addTarget(self, action: #selector(handleStatTap), for: .touchUpInside)
         return button
     }()
     
     private let validateButton: UIButton = {
         let button = UIButton()
-        button.setTitle("V", for: .normal)
-        button.backgroundColor = UIColor.green
+        button.setImage(UIImage(named: "validate"), for: .normal)
+        button.backgroundColor = UIColor.lightGray
         return button
     }()
     
@@ -69,6 +79,7 @@ class HomeView: UIView {
         backgroundColor = UIColor.white
         setupItems()
         setupButtons()
+        setupLabel()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -122,4 +133,22 @@ class HomeView: UIView {
         statButton.widthAnchor.constraint(equalToConstant: topButtonSize).isActive = true
     }
     
+    private func setupLabel() {
+        addSubview(hourLabel)
+        hourLabel.translatesAutoresizingMaskIntoConstraints = false
+        hourLabel.bottomAnchor.constraint(equalTo: energyCell.topAnchor, constant: -40).isActive = true
+        hourLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8)
+        hourLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        hourLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    }
+    
+    // MARK: - Actions
+    
+    @objc func handleDataTap() {
+        print("Data button tapped")
+    }
+    
+    @objc func handleStatTap() {
+        print("Stat button tapped")
+    }
 }

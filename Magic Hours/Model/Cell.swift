@@ -25,15 +25,28 @@ class Cell: UIView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = UIColor.green
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
     
+    private let pickerView: UIPickerView = {
+        let picker = UIPickerView()
+        
+        // Rotate the picker view
+        picker.transform = CGAffineTransform(rotationAngle: CGFloat(90*Double.pi/180))
+        
+        return picker
+    }()
+    
+    // MARK: - Constructors
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupSubviews()
+        pickerView.delegate = self
+        pickerView.dataSource = self
         
+        setupSubviews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -59,6 +72,35 @@ class Cell: UIView {
         titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: titleMargin).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: titleHeight).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -titleMargin).isActive = true
+        
+        addSubview(pickerView)
+        pickerView.translatesAutoresizingMaskIntoConstraints = false
+        pickerView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        pickerView.heightAnchor.constraint(equalTo: widthAnchor).isActive = true
+        pickerView.widthAnchor.constraint(equalTo: heightAnchor, constant: -titleHeight-20).isActive = true
+        pickerView.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor, constant: 50).isActive = true
     }
 
+}
+
+extension Cell: UIPickerViewDelegate {
+    
+}
+
+extension Cell: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 10
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
+        view.backgroundColor = UIColor.red
+        
+        view.transform = CGAffineTransform(rotationAngle: CGFloat(90*Double.pi/180))
+        return view
+    }
 }
