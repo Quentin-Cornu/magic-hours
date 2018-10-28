@@ -29,24 +29,24 @@ class StatView: UIView {
         return button
     }()
     
-    let energySelector: UIButton = {
+    let energySelector: SelectorButton = {
         let selector = SelectorButton()
         selector.setIcon(icon: UIImage(named: "battery")!)
-        
+        selector.setColor(color: UIColor(displayP3Red: 231/255, green: 76/255, blue: 60/255, alpha: 1))
         return selector
     }()
     
-    let focusSelector: UIButton = {
+    let focusSelector: SelectorButton = {
         let selector = SelectorButton()
         selector.setIcon(icon: UIImage(named: "target")!)
-        
+        selector.setColor(color: UIColor.lightGray)
         return selector
     }()
     
-    let motivationSelector: UIButton = {
+    let motivationSelector: SelectorButton = {
         let selector = SelectorButton()
         selector.setIcon(icon: UIImage(named: "money")!)
-        
+        selector.setColor(color: UIColor.lightGray)
         return selector
     }()
     

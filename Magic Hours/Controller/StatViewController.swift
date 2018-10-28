@@ -38,14 +38,23 @@ class StatViewController: UIViewController {
     
     @objc private func selectEnergy() {
         statView.setValues(points: fetchPoints(criteria: Criteria.energy))
+        statView.energySelector.setColor(color: UIColor(displayP3Red: 231/255, green: 76/255, blue: 60/255, alpha: 1))
+        statView.motivationSelector.setColor(color: UIColor.lightGray)
+        statView.focusSelector.setColor(color: UIColor.lightGray)
     }
     
     @objc private func selectFocus() {
         statView.setValues(points: fetchPoints(criteria: Criteria.focus))
+        statView.energySelector.setColor(color: UIColor.lightGray)
+        statView.motivationSelector.setColor(color: UIColor.lightGray)
+        statView.focusSelector.setColor(color: UIColor(displayP3Red: 41/255, green: 128/255, blue: 185/255, alpha: 1))
     }
     
     @objc private func selectMotivation() {
         statView.setValues(points: fetchPoints(criteria: Criteria.motivation))
+        statView.energySelector.setColor(color: UIColor.lightGray)
+        statView.motivationSelector.setColor(color: UIColor(displayP3Red: 241/255, green: 196/255, blue: 15/255, alpha: 1))
+        statView.focusSelector.setColor(color: UIColor.lightGray)
     }
     
     // MARK: - Private functions

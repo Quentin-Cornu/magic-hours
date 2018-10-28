@@ -35,6 +35,8 @@ class HomeView: UIView {
         cell.setBackgroundColor(color: UIColor.lightGray)
         cell.setTitle(title: "Energy")
         cell.setIcon(icon: UIImage(named: "battery")!)
+        cell.backgroundColor = UIColor(displayP3Red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
+        
         return cell
     }()
     
@@ -43,6 +45,7 @@ class HomeView: UIView {
         cell.setBackgroundColor(color: UIColor.lightGray)
         cell.setTitle(title: "Focus")
         cell.setIcon(icon: UIImage(named: "target")!)
+        cell.backgroundColor = UIColor(displayP3Red: 41/255, green: 128/255, blue: 185/255, alpha: 1)
         return cell
     }()
     
@@ -51,6 +54,7 @@ class HomeView: UIView {
         cell.setBackgroundColor(color: UIColor.lightGray)
         cell.setTitle(title: "Motivation")
         cell.setIcon(icon: UIImage(named: "money")!)
+        cell.backgroundColor = UIColor(displayP3Red: 241/255, green: 196/255, blue: 15/255, alpha: 1)
         return cell
     }()
     
@@ -69,7 +73,7 @@ class HomeView: UIView {
     let validateButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "validate"), for: .normal)
-        button.backgroundColor = UIColor.lightGray
+        button.backgroundColor = UIColor(displayP3Red: 39/255, green: 174/255, blue: 96/255, alpha: 1)
         return button
     }()
     

@@ -87,6 +87,8 @@ class Graph: UIView {
             let bar = UIView()
             bar.backgroundColor = UIColor.darkGray
             
+            bar.backgroundColor = UIColor(displayP3Red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
+            
             subview.addSubview(bar)
             bar.translatesAutoresizingMaskIntoConstraints = false
             bar.leftAnchor.constraint(equalTo: subview.leftAnchor).isActive = true
