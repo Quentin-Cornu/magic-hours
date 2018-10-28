@@ -33,7 +33,7 @@ class Graph: UIView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
-        stackView.spacing = 10
+        stackView.spacing = 8
         
         for _ in 0..<12 {
             let view = UIView()
@@ -48,9 +48,7 @@ class Graph: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupAxis()
-        
         updateGraph()
-        
         setupDataContainer()
     }
     
@@ -91,6 +89,18 @@ class Graph: UIView {
             bar.bottomAnchor.constraint(equalTo: subview.bottomAnchor).isActive = true
             bar.rightAnchor.constraint(equalTo: subview.rightAnchor).isActive = true
             bar.heightAnchor.constraint(equalTo: subview.heightAnchor, multiplier: CGFloat(values[index].value)/10).isActive = true
+            
+            let label = UILabel()
+            label.font = UIFont.systemFont(ofSize: 12)
+            label.text = values[index].label
+            label.textAlignment = .center
+            
+            subview.addSubview(label)
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.topAnchor.constraint(equalTo: bar.bottomAnchor, constant: 8).isActive = true
+            label.centerXAnchor.constraint(equalTo: bar.centerXAnchor).isActive = true
+            label.widthAnchor.constraint(equalTo: bar.widthAnchor).isActive = true
+            label.heightAnchor.constraint(equalTo: label.widthAnchor).isActive = true
         }
     }
     
@@ -102,14 +112,14 @@ class Graph: UIView {
         horizontalAxis.heightAnchor.constraint(equalToConstant: 2).isActive = true
         horizontalAxis.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         horizontalAxis.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        horizontalAxis.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        horizontalAxis.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20).isActive = true
         
         addSubview(verticalAxis)
         verticalAxis.translatesAutoresizingMaskIntoConstraints = false
         verticalAxis.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
         verticalAxis.widthAnchor.constraint(equalToConstant: 2).isActive = true
         verticalAxis.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        verticalAxis.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        verticalAxis.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
     }
     
     private func setupDataContainer() {

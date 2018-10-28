@@ -29,6 +29,27 @@ class StatView: UIView {
         return button
     }()
     
+    let energySelector: UIButton = {
+        let selector = SelectorButton()
+        selector.setIcon(icon: UIImage(named: "battery")!)
+        
+        return selector
+    }()
+    
+    let focusSelector: UIButton = {
+        let selector = SelectorButton()
+        selector.setIcon(icon: UIImage(named: "target")!)
+        
+        return selector
+    }()
+    
+    let motivationSelector: UIButton = {
+        let selector = SelectorButton()
+        selector.setIcon(icon: UIImage(named: "money")!)
+        
+        return selector
+    }()
+    
     // MARK: - Constructor
     
     override init(frame: CGRect) {
@@ -57,7 +78,7 @@ class StatView: UIView {
         graph.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         graph.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         graph.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
-        graph.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6).isActive = true
+        graph.heightAnchor.constraint(equalTo: graph.widthAnchor).isActive = true
     }
     
     private func setupButtons() {
@@ -67,6 +88,22 @@ class StatView: UIView {
         backButton.leftAnchor.constraint(equalTo: leftAnchor, constant: topButtonSideMargin).isActive = true
         backButton.heightAnchor.constraint(equalToConstant: topButtonSize).isActive = true
         backButton.widthAnchor.constraint(equalToConstant: topButtonSize).isActive = true
+        
+        let selectorContainer = UIStackView()
+        selectorContainer.distribution = .fillEqually
+        selectorContainer.axis = .horizontal
+        selectorContainer.spacing = 15
+        
+        selectorContainer.addArrangedSubview(energySelector)
+        selectorContainer.addArrangedSubview(focusSelector)
+        selectorContainer.addArrangedSubview(motivationSelector)
+        selectorContainer.backgroundColor = UIColor.red
+        addSubview(selectorContainer)
+        selectorContainer.translatesAutoresizingMaskIntoConstraints = false
+        selectorContainer.topAnchor.constraint(equalTo: graph.bottomAnchor, constant: 50).isActive = true
+        selectorContainer.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        selectorContainer.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
+        selectorContainer.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
 }

@@ -23,6 +23,7 @@
 		66146DDE2185E93100E78CC2 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66146DDD2185E93100E78CC2 /* Point.swift */; };
 		66146DE02185F40200E78CC2 /* PickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66146DDF2185F40200E78CC2 /* PickerViewCell.swift */; };
 		66BC860321861E7D005EE72B /* DataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BC860221861E7D005EE72B /* DataPoint.swift */; };
+		66BC86052186415D005EE72B /* SelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BC86042186415D005EE72B /* SelectorButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		66146DDD2185E93100E78CC2 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		66146DDF2185F40200E78CC2 /* PickerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewCell.swift; sourceTree = "<group>"; };
 		66BC860221861E7D005EE72B /* DataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPoint.swift; sourceTree = "<group>"; };
+		66BC86042186415D005EE72B /* SelectorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorButton.swift; sourceTree = "<group>"; };
 		78A9DF886830D691A1D47D67 /* Pods-Magic Hours.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magic Hours.release.xcconfig"; path = "Pods/Target Support Files/Pods-Magic Hours/Pods-Magic Hours.release.xcconfig"; sourceTree = "<group>"; };
 		896EB48158755956BB8163A1 /* Pods_Magic_Hours.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Magic_Hours.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -105,6 +107,7 @@
 				66146DDD2185E93100E78CC2 /* Point.swift */,
 				66146DDF2185F40200E78CC2 /* PickerViewCell.swift */,
 				66BC860221861E7D005EE72B /* DataPoint.swift */,
+				66BC86042186415D005EE72B /* SelectorButton.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				66BC860321861E7D005EE72B /* DataPoint.swift in Sources */,
 				66146DDE2185E93100E78CC2 /* Point.swift in Sources */,
 				66146DDC2185CA2D00E78CC2 /* Graph.swift in Sources */,
+				66BC86052186415D005EE72B /* SelectorButton.swift in Sources */,
 				66146DD42185969100E78CC2 /* StatViewController.swift in Sources */,
 				66146DB8218592F200E78CC2 /* AppDelegate.swift in Sources */,
 				66146DE02185F40200E78CC2 /* PickerViewCell.swift in Sources */,
