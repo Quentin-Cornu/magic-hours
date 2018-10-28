@@ -13,11 +13,11 @@ class HomeView: UIView {
     // MARK: - Private Properties
     
     private let cellHeight: CGFloat = 110
-    private let cellMultiplier: CGFloat = 0.8
+    private let cellMultiplier: CGFloat = 0.9
     private let cellSpace: CGFloat = 10
-    private let validateButtonSize: CGFloat = 100
-    private let topButtonMargin: CGFloat = 60
-    private let sideButtonMargin: CGFloat = 20
+    private let validateButtonSize: CGFloat = 70
+    private let topButtonTopMargin: CGFloat = 60
+    private let topButtonSideMargin: CGFloat = 20
     private let topButtonSize: CGFloat = 40
 
     // MARK: - SubViews
@@ -63,7 +63,7 @@ class HomeView: UIView {
         return button
     }()
     
-    private let validateButton: UIButton = {
+    let validateButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "validate"), for: .normal)
         button.backgroundColor = UIColor.lightGray
@@ -78,6 +78,7 @@ class HomeView: UIView {
         setupItems()
         setupButtons()
         setupLabel()
+        setDate()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -118,15 +119,15 @@ class HomeView: UIView {
         
         addSubview(dataButton)
         dataButton.translatesAutoresizingMaskIntoConstraints = false
-        dataButton.topAnchor.constraint(equalTo: topAnchor, constant: topButtonMargin).isActive = true
-        dataButton.leftAnchor.constraint(equalTo: leftAnchor, constant: sideButtonMargin).isActive = true
+        dataButton.topAnchor.constraint(equalTo: topAnchor, constant: topButtonTopMargin).isActive = true
+        dataButton.leftAnchor.constraint(equalTo: leftAnchor, constant: topButtonSideMargin).isActive = true
         dataButton.heightAnchor.constraint(equalToConstant: topButtonSize).isActive = true
         dataButton.widthAnchor.constraint(equalToConstant: topButtonSize).isActive = true
         
         addSubview(statButton)
         statButton.translatesAutoresizingMaskIntoConstraints = false
-        statButton.topAnchor.constraint(equalTo: topAnchor, constant: topButtonMargin).isActive = true
-        statButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -sideButtonMargin).isActive = true
+        statButton.topAnchor.constraint(equalTo: topAnchor, constant: topButtonTopMargin).isActive = true
+        statButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -topButtonSideMargin).isActive = true
         statButton.heightAnchor.constraint(equalToConstant: topButtonSize).isActive = true
         statButton.widthAnchor.constraint(equalToConstant: topButtonSize).isActive = true
     }
@@ -138,6 +139,15 @@ class HomeView: UIView {
         hourLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8)
         hourLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         hourLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    }
+    
+    private func setDate() {
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        
+        hourLabel.text = "\(hour) : \(minutes)"
     }
     
 }

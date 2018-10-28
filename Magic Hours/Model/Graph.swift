@@ -12,7 +12,7 @@ class Graph: UIView {
     
     // MARK: - Private properties
     
-    private var values = [Int]()
+    private var values = [Point]()
     
     // MARK: - Subviews
     
@@ -48,15 +48,49 @@ class Graph: UIView {
         super.init(frame: frame)
         setupAxis()
         
-        values = [4, 5, 6, 8, 9, 3, 1, 10, 0, 8]
-        fillGraph()
-        
+        updateGraph()
         
         setupDataContainer()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Methods
+    
+    func setValues(points: [Point]) {
+        values = points
+    }
+    
+    func updateGraph() {
+        
+        let barContainers = dataContainerView.subviews
+        
+        if (values.count > 10) {
+            print("ERROR : Too many values of a 10 values graph")
+            return
+        }
+        
+        for index in 0..<values.count {
+            
+            if (values[index].value > 10) {
+                print("ERROR : Values must be of max values : 10")
+                return
+            }
+            
+            let subview = barContainers[index]
+            
+            let bar = UIView()
+            bar.backgroundColor = UIColor.darkGray
+            
+            subview.addSubview(bar)
+            bar.translatesAutoresizingMaskIntoConstraints = false
+            bar.leftAnchor.constraint(equalTo: subview.leftAnchor).isActive = true
+            bar.bottomAnchor.constraint(equalTo: subview.bottomAnchor).isActive = true
+            bar.rightAnchor.constraint(equalTo: subview.rightAnchor).isActive = true
+            bar.heightAnchor.constraint(equalTo: subview.heightAnchor, multiplier: CGFloat(values[index].value)/10).isActive = true
+        }
     }
     
     // MARK: - Private functions
@@ -86,34 +120,5 @@ class Graph: UIView {
         dataContainerView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
     }
     
-    private func fillGraph() {
-        
-        let barContainers = dataContainerView.subviews
-        
-        if (values.count > 10) {
-            print("ERROR : Too many values of a 10 values graph")
-            return
-        }
-        
-        for index in 0..<values.count {
-            
-            if (values[index] > 10) {
-                print("ERROR : Values must be of max values : 10")
-                return
-            }
-            
-            let subview = barContainers[index]
-            
-            let bar = UIView()
-            bar.backgroundColor = UIColor.darkGray
-            
-            subview.addSubview(bar)
-            bar.translatesAutoresizingMaskIntoConstraints = false
-            bar.leftAnchor.constraint(equalTo: subview.leftAnchor).isActive = true
-            bar.bottomAnchor.constraint(equalTo: subview.bottomAnchor).isActive = true
-            bar.rightAnchor.constraint(equalTo: subview.rightAnchor).isActive = true
-            bar.heightAnchor.constraint(equalTo: subview.heightAnchor, multiplier: CGFloat(values[index])/10).isActive = true
-        }
-    }
     
 }

@@ -12,14 +12,21 @@ class StatView: UIView {
     
     // MARK: : Private properties
     
-    private let values = [Date: Int]()
+    private let topButtonTopMargin: CGFloat = 60
+    private let topButtonSideMargin: CGFloat = 20
+    private let topButtonSize: CGFloat = 40
     
     // MARK: - Subviews
     
     private let graph: Graph = {
         let graph = Graph()
-        
         return graph
+    }()
+    
+    let backButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "back"), for: .normal)
+        return button
     }()
     
     // MARK: - Constructor
@@ -28,7 +35,7 @@ class StatView: UIView {
         super.init(frame: frame)
         backgroundColor = UIColor.white
         setupGraph()
-        
+        setupButtons()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,6 +43,11 @@ class StatView: UIView {
     }
     
     // MARK: - Methods
+    
+    func setValues(points: [Point]) {
+        graph.setValues(points: points)
+        graph.updateGraph()
+    }
     
     // MARK: - Private functions
     
@@ -46,6 +58,15 @@ class StatView: UIView {
         graph.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         graph.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
         graph.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6).isActive = true
+    }
+    
+    private func setupButtons() {
+        addSubview(backButton)
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.topAnchor.constraint(equalTo: topAnchor, constant: topButtonTopMargin).isActive = true
+        backButton.leftAnchor.constraint(equalTo: leftAnchor, constant: topButtonSideMargin).isActive = true
+        backButton.heightAnchor.constraint(equalToConstant: topButtonSize).isActive = true
+        backButton.widthAnchor.constraint(equalToConstant: topButtonSize).isActive = true
     }
     
 }

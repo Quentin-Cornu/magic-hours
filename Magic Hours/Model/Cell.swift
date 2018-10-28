@@ -12,6 +12,8 @@ class Cell: UIView {
     
     // MARK: - Private properties
     
+    private let cellSize: CGFloat = 65.0
+    
     private var title: String = "No Title" {
         didSet {
             titleLabel.text = title
@@ -45,7 +47,7 @@ class Cell: UIView {
         super.init(frame: frame)
         pickerView.delegate = self
         pickerView.dataSource = self
-        
+        pickerView.selectRow(5, inComponent: 0, animated: false)
         setupSubviews()
     }
     
@@ -84,7 +86,13 @@ class Cell: UIView {
 }
 
 extension Cell: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return cellSize
+    }
     
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        return cellSize
+    }
 }
 
 extension Cell: UIPickerViewDataSource {
@@ -95,12 +103,11 @@ extension Cell: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return 10
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
-        view.backgroundColor = UIColor.red
-        
-        view.transform = CGAffineTransform(rotationAngle: CGFloat(90*Double.pi/180))
-        return view
+        let cell = PickerViewCell()
+        cell.setNumber(10-row)
+        cell.transform = CGAffineTransform(rotationAngle: CGFloat(-90*Double.pi/180))
+        return cell
     }
 }
