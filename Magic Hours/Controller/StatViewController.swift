@@ -10,10 +10,18 @@ import UIKit
 
 class StatViewController: UIViewController {
 
+    // MARK: - Private properties
+    
+    let statView: StatView = {
+        let view = StatView()
+        
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view = statView
     }
 
 }

@@ -51,17 +51,15 @@ class HomeView: UIView {
         return cell
     }()
     
-    private let dataButton: UIButton = {
+    let dataButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "burger"), for: .normal)
-        button.addTarget(self, action: #selector(handleDataTap), for: .touchUpInside)
         return button
     }()
     
-    private let statButton: UIButton = {
+    let statButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "stats"), for: .normal)
-        button.addTarget(self, action: #selector(handleStatTap), for: .touchUpInside)
         return button
     }()
     
@@ -142,13 +140,4 @@ class HomeView: UIView {
         hourLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
-    // MARK: - Actions
-    
-    @objc func handleDataTap() {
-        print("Data button tapped")
-    }
-    
-    @objc func handleStatTap() {
-        print("Stat button tapped")
-    }
 }

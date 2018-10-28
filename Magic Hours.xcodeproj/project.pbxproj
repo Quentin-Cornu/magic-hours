@@ -18,6 +18,7 @@
 		66146DD42185969100E78CC2 /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66146DD32185969100E78CC2 /* StatViewController.swift */; };
 		66146DD62185969F00E78CC2 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66146DD52185969F00E78CC2 /* DataViewController.swift */; };
 		66146DD821859D0100E78CC2 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66146DD721859D0100E78CC2 /* Cell.swift */; };
+		66146DDC2185CA2D00E78CC2 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66146DDB2185CA2D00E78CC2 /* Graph.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		66146DD32185969100E78CC2 /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
 		66146DD52185969F00E78CC2 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		66146DD721859D0100E78CC2 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		66146DDB2185CA2D00E78CC2 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				66146DD721859D0100E78CC2 /* Cell.swift */,
+				66146DDB2185CA2D00E78CC2 /* Graph.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				66146DD22185964C00E78CC2 /* DataView.swift in Sources */,
 				66146DBA218592F200E78CC2 /* HomeViewController.swift in Sources */,
 				66146DD821859D0100E78CC2 /* Cell.swift in Sources */,
+				66146DDC2185CA2D00E78CC2 /* Graph.swift in Sources */,
 				66146DD42185969100E78CC2 /* StatViewController.swift in Sources */,
 				66146DB8218592F200E78CC2 /* AppDelegate.swift in Sources */,
 			);
