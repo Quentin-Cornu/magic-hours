@@ -85,6 +85,12 @@ class HomeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
+    
+    func getNotes() -> (energy: Int, focus: Int, motivation: Int) {
+        return (energyCell.selectedNumber(), focusCell.selectedNumber(), motivationCell.selectedNumber())
+    }
+    
     private func setupItems() {
         addSubview(focusCell)
         focusCell.translatesAutoresizingMaskIntoConstraints = false

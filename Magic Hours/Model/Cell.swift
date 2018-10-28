@@ -65,6 +65,10 @@ class Cell: UIView {
         self.title = title
     }
     
+    func selectedNumber() -> Int {
+        return 10 - pickerView.selectedRow(inComponent: 0)
+    }
+    
     // MARK: - Private functions
     
     private func setupSubviews() {
