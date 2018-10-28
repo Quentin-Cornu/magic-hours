@@ -12,35 +12,63 @@ class HomeView: UIView {
     
     // MARK: - Private Properties
     
-    private let cellHeight: CGFloat = 90
+    private let cellHeight: CGFloat = 110
     private let cellMultiplier: CGFloat = 0.8
     private let cellSpace: CGFloat = 10
-    
-    
+    private let validateButtonSize: CGFloat = 100
+    private let topButtonMargin: CGFloat = 60
+    private let sideButtonMargin: CGFloat = 20
+    private let topButtonSize: CGFloat = 50
+
     // MARK: - SubViews
     
     private let energyCell: Cell = {
         let cell = Cell()
         cell.setBackgroundColor(color: UIColor.blue)
+        cell.setTitle(title: "Energy")
         return cell
     }()
     
     private let focusCell: Cell = {
         let cell = Cell()
         cell.setBackgroundColor(color: UIColor.red)
+        cell.setTitle(title: "Focus")
         return cell
     }()
     
     private let motivationCell: Cell = {
         let cell = Cell()
         cell.setBackgroundColor(color: UIColor.yellow)
+        cell.setTitle(title: "Motivation")
         return cell
     }()
+    
+    private let dataButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor.black
+        return button
+    }()
+    
+    private let statButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor.black
+        return button
+    }()
+    
+    private let validateButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("V", for: .normal)
+        button.backgroundColor = UIColor.green
+        return button
+    }()
+    
+    // Constructors
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.white
         setupItems()
+        setupButtons()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -70,5 +98,28 @@ class HomeView: UIView {
         motivationCell.widthAnchor.constraint(equalTo: widthAnchor, multiplier: cellMultiplier).isActive = true
     }
     
+    private func setupButtons() {
+        addSubview(validateButton)
+        validateButton.translatesAutoresizingMaskIntoConstraints = false
+        validateButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50).isActive = true
+        validateButton.widthAnchor.constraint(equalToConstant: validateButtonSize).isActive = true
+        validateButton.heightAnchor.constraint(equalToConstant: validateButtonSize).isActive = true
+        validateButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        validateButton.layer.cornerRadius = validateButtonSize/2
+        
+        addSubview(dataButton)
+        dataButton.translatesAutoresizingMaskIntoConstraints = false
+        dataButton.topAnchor.constraint(equalTo: topAnchor, constant: topButtonMargin).isActive = true
+        dataButton.leftAnchor.constraint(equalTo: leftAnchor, constant: sideButtonMargin).isActive = true
+        dataButton.heightAnchor.constraint(equalToConstant: topButtonSize).isActive = true
+        dataButton.widthAnchor.constraint(equalToConstant: topButtonSize).isActive = true
+        
+        addSubview(statButton)
+        statButton.translatesAutoresizingMaskIntoConstraints = false
+        statButton.topAnchor.constraint(equalTo: topAnchor, constant: topButtonMargin).isActive = true
+        statButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -sideButtonMargin).isActive = true
+        statButton.heightAnchor.constraint(equalToConstant: topButtonSize).isActive = true
+        statButton.widthAnchor.constraint(equalToConstant: topButtonSize).isActive = true
+    }
     
 }
