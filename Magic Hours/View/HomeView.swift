@@ -34,6 +34,7 @@ class HomeView: UIView {
         let cell = Cell()
         cell.setBackgroundColor(color: UIColor.lightGray)
         cell.setTitle(title: "Energy")
+        cell.setIcon(icon: UIImage(named: "battery")!)
         return cell
     }()
     
@@ -41,6 +42,7 @@ class HomeView: UIView {
         let cell = Cell()
         cell.setBackgroundColor(color: UIColor.lightGray)
         cell.setTitle(title: "Focus")
+        cell.setIcon(icon: UIImage(named: "target")!)
         return cell
     }()
     
@@ -48,6 +50,7 @@ class HomeView: UIView {
         let cell = Cell()
         cell.setBackgroundColor(color: UIColor.lightGray)
         cell.setTitle(title: "Motivation")
+        cell.setIcon(icon: UIImage(named: "money")!)
         return cell
     }()
     

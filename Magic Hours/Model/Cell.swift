@@ -41,10 +41,17 @@ class Cell: UIView {
         return picker
     }()
     
+    private let iconView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     // MARK: - Constructors
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        layer.cornerRadius = 10
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerView.selectRow(5, inComponent: 0, animated: false)
@@ -65,6 +72,10 @@ class Cell: UIView {
         self.title = title
     }
     
+    func setIcon(icon: UIImage) {
+        self.iconView.image = icon
+    }
+    
     func selectedNumber() -> Int {
         return 10 - pickerView.selectedRow(inComponent: 0)
     }
@@ -72,10 +83,17 @@ class Cell: UIView {
     // MARK: - Private functions
     
     private func setupSubviews() {
+        addSubview(iconView)
+        iconView.translatesAutoresizingMaskIntoConstraints = false
+        iconView.topAnchor.constraint(equalTo: topAnchor, constant: titleMargin).isActive = true
+        iconView.leftAnchor.constraint(equalTo: leftAnchor, constant: titleMargin).isActive = true
+        iconView.heightAnchor.constraint(equalToConstant: titleHeight).isActive = true
+        iconView.widthAnchor.constraint(equalToConstant: titleHeight).isActive = true
+        
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: titleMargin).isActive = true
-        titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: titleMargin).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: iconView.rightAnchor, constant: titleMargin).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: titleHeight).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -titleMargin).isActive = true
         

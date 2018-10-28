@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A26B5E4C5AF1FD99E8A7E3F /* Pods_Magic_Hours.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 896EB48158755956BB8163A1 /* Pods_Magic_Hours.framework */; };
 		66146DB8218592F200E78CC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66146DB7218592F200E78CC2 /* AppDelegate.swift */; };
 		66146DBA218592F200E78CC2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66146DB9218592F200E78CC2 /* HomeViewController.swift */; };
 		66146DBD218592F200E78CC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66146DBB218592F200E78CC2 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33A8D3D9B1FBBCAB8310AB06 /* Pods-Magic Hours.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magic Hours.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Magic Hours/Pods-Magic Hours.debug.xcconfig"; sourceTree = "<group>"; };
 		66146DB4218592F200E78CC2 /* Magic Hours.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Magic Hours.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66146DB7218592F200E78CC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66146DB9218592F200E78CC2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +42,8 @@
 		66146DDB2185CA2D00E78CC2 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		66146DDD2185E93100E78CC2 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		66146DDF2185F40200E78CC2 /* PickerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewCell.swift; sourceTree = "<group>"; };
+		78A9DF886830D691A1D47D67 /* Pods-Magic Hours.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magic Hours.release.xcconfig"; path = "Pods/Target Support Files/Pods-Magic Hours/Pods-Magic Hours.release.xcconfig"; sourceTree = "<group>"; };
+		896EB48158755956BB8163A1 /* Pods_Magic_Hours.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Magic_Hours.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,17 +51,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A26B5E4C5AF1FD99E8A7E3F /* Pods_Magic_Hours.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36B82B927ACFEDEB4D3B55DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				896EB48158755956BB8163A1 /* Pods_Magic_Hours.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		66146DAB218592F200E78CC2 = {
 			isa = PBXGroup;
 			children = (
 				66146DB6218592F200E78CC2 /* Magic Hours */,
 				66146DB5218592F200E78CC2 /* Products */,
+				E85E2AD23F701CC84A375315 /* Pods */,
+				36B82B927ACFEDEB4D3B55DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +138,15 @@
 			path = "Support Files";
 			sourceTree = "<group>";
 		};
+		E85E2AD23F701CC84A375315 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				33A8D3D9B1FBBCAB8310AB06 /* Pods-Magic Hours.debug.xcconfig */,
+				78A9DF886830D691A1D47D67 /* Pods-Magic Hours.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -130,9 +154,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66146DC6218592F400E78CC2 /* Build configuration list for PBXNativeTarget "Magic Hours" */;
 			buildPhases = (
+				195B628C133FAA0E3B4585E8 /* [CP] Check Pods Manifest.lock */,
 				66146DB0218592F200E78CC2 /* Sources */,
 				66146DB1218592F200E78CC2 /* Frameworks */,
 				66146DB2218592F200E78CC2 /* Resources */,
+				747AB694159CC0465F7E33EE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -188,6 +214,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		195B628C133FAA0E3B4585E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Magic Hours-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		747AB694159CC0465F7E33EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Magic Hours/Pods-Magic Hours-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Magic Hours/Pods-Magic Hours-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		66146DB0218592F200E78CC2 /* Sources */ = {
@@ -348,15 +415,13 @@
 		};
 		66146DC7218592F400E78CC2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33A8D3D9B1FBBCAB8310AB06 /* Pods-Magic Hours.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3QT4Z4R2K;
 				INFOPLIST_FILE = "$(SRCROOT)/Magic Hours/Support Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.quentin.Magic-Hours";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -366,15 +431,13 @@
 		};
 		66146DC8218592F400E78CC2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78A9DF886830D691A1D47D67 /* Pods-Magic Hours.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3QT4Z4R2K;
 				INFOPLIST_FILE = "$(SRCROOT)/Magic Hours/Support Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.quentin.Magic-Hours";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
