@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class StatViewController: UIViewController {
 
@@ -25,15 +26,22 @@ class StatViewController: UIViewController {
         
         
         var points = [Point]()
-        points.append(Point(label: "Mar", value: 3))
-        points.append(Point(label: "Mer", value: 4))
-        points.append(Point(label: "Jeu", value: 6))
-        points.append(Point(label: "Ven", value: 8))
-        points.append(Point(label: "Sam", value: 7))
-        points.append(Point(label: "Dim", value: 9))
-        points.append(Point(label: "Lun", value: 5))
-        points.append(Point(label: "Mar", value: 2))
-        points.append(Point(label: "Mer", value: 10))
+        
+        let currentHour = Calendar.current.component(.hour, from: Date())
+        
+        for i in 0..<12 {
+            points.append(Point(label: "\(currentHour-11+i)", value: 0))
+        }
+        
+        let realm = try! Realm()
+        
+        let energyPoints = realm.objects(DataPoint.self).filter("criteria = %@ AND date > %@", String(Criteria.energy.rawValue), Date(timeInterval: -60*60*24, since: Date()))
+        
+        for point in energyPoints {
+            let hourInterval = Int(point.date.timeIntervalSinceNow/(60*60))
+            
+            points[points.count+hourInterval-1] = Point(label: point.criteria, value: Int(point.note))
+        }
         
         statView.setValues(points: points)
     }

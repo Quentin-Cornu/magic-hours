@@ -90,8 +90,8 @@ class HomeView: UIView {
     
     // MARK: - Methods
     
-    func getNotes() -> (energy: Int, focus: Int, motivation: Int) {
-        return (energyCell.selectedNumber(), focusCell.selectedNumber(), motivationCell.selectedNumber())
+    func getNotes() -> (energy: Int8, focus: Int8, motivation: Int8) {
+        return (Int8(energyCell.selectedNumber()), Int8(focusCell.selectedNumber()), Int8(motivationCell.selectedNumber()))
     }
     
     private func setupItems() {

@@ -22,6 +22,7 @@
 		66146DDC2185CA2D00E78CC2 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66146DDB2185CA2D00E78CC2 /* Graph.swift */; };
 		66146DDE2185E93100E78CC2 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66146DDD2185E93100E78CC2 /* Point.swift */; };
 		66146DE02185F40200E78CC2 /* PickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66146DDF2185F40200E78CC2 /* PickerViewCell.swift */; };
+		66BC860321861E7D005EE72B /* DataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BC860221861E7D005EE72B /* DataPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		66146DDB2185CA2D00E78CC2 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		66146DDD2185E93100E78CC2 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		66146DDF2185F40200E78CC2 /* PickerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewCell.swift; sourceTree = "<group>"; };
+		66BC860221861E7D005EE72B /* DataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPoint.swift; sourceTree = "<group>"; };
 		78A9DF886830D691A1D47D67 /* Pods-Magic Hours.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magic Hours.release.xcconfig"; path = "Pods/Target Support Files/Pods-Magic Hours/Pods-Magic Hours.release.xcconfig"; sourceTree = "<group>"; };
 		896EB48158755956BB8163A1 /* Pods_Magic_Hours.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Magic_Hours.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 				66146DDB2185CA2D00E78CC2 /* Graph.swift */,
 				66146DDD2185E93100E78CC2 /* Point.swift */,
 				66146DDF2185F40200E78CC2 /* PickerViewCell.swift */,
+				66BC860221861E7D005EE72B /* DataPoint.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				66146DD22185964C00E78CC2 /* DataView.swift in Sources */,
 				66146DBA218592F200E78CC2 /* HomeViewController.swift in Sources */,
 				66146DD821859D0100E78CC2 /* Cell.swift in Sources */,
+				66BC860321861E7D005EE72B /* DataPoint.swift in Sources */,
 				66146DDE2185E93100E78CC2 /* Point.swift in Sources */,
 				66146DDC2185CA2D00E78CC2 /* Graph.swift in Sources */,
 				66146DD42185969100E78CC2 /* StatViewController.swift in Sources */,
@@ -421,7 +425,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3QT4Z4R2K;
 				INFOPLIST_FILE = "$(SRCROOT)/Magic Hours/Support Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.quentin.Magic-Hours";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -437,7 +444,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3QT4Z4R2K;
 				INFOPLIST_FILE = "$(SRCROOT)/Magic Hours/Support Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.quentin.Magic-Hours";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

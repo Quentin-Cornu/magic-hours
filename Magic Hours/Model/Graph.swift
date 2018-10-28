@@ -13,6 +13,7 @@ class Graph: UIView {
     // MARK: - Private properties
     
     private var values = [Point]()
+    private let numberOfPoints = 12
     
     // MARK: - Subviews
     
@@ -34,7 +35,7 @@ class Graph: UIView {
         stackView.distribution = .fillEqually
         stackView.spacing = 10
         
-        for _ in 1...10 {
+        for _ in 0..<12 {
             let view = UIView()
             stackView.addArrangedSubview(view)
         }
@@ -67,14 +68,14 @@ class Graph: UIView {
         
         let barContainers = dataContainerView.subviews
         
-        if (values.count > 10) {
+        if (values.count > numberOfPoints) {
             print("ERROR : Too many values of a 10 values graph")
             return
         }
         
         for index in 0..<values.count {
             
-            if (values[index].value > 10) {
+            if (values[index].value > numberOfPoints) {
                 print("ERROR : Values must be of max values : 10")
                 return
             }
