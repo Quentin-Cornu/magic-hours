@@ -80,6 +80,10 @@ class Graph: UIView {
             
             let subview = barContainers[index]
             
+            for view in subview.subviews {
+                view.removeFromSuperview()
+            }
+            
             let bar = UIView()
             bar.backgroundColor = UIColor.darkGray
             

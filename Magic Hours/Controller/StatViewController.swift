@@ -16,6 +16,9 @@ class StatViewController: UIViewController {
     let statView: StatView = {
         let view = StatView()
         view.backButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
+        view.energySelector.addTarget(self, action: #selector(selectEnergy), for: .touchUpInside)
+        view.focusSelector.addTarget(self, action: #selector(selectFocus), for: .touchUpInside)
+        view.motivationSelector.addTarget(self, action: #selector(selectMotivation), for: .touchUpInside)
         return view
     }()
     
@@ -24,13 +27,25 @@ class StatViewController: UIViewController {
 
         view = statView
 
-        statView.setValues(points: fetchPoints())
+        statView.setValues(points: fetchPoints(criteria: Criteria.energy))
     }
     
     // MARK: - Actions
     
     @objc private func dismissView() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func selectEnergy() {
+        statView.setValues(points: fetchPoints(criteria: Criteria.energy))
+    }
+    
+    @objc private func selectFocus() {
+        statView.setValues(points: fetchPoints(criteria: Criteria.focus))
+    }
+    
+    @objc private func selectMotivation() {
+        statView.setValues(points: fetchPoints(criteria: Criteria.motivation))
     }
     
     // MARK: - Private functions
@@ -46,11 +61,11 @@ class StatViewController: UIViewController {
         return points
     }
     
-    private func fetchPoints() -> [Point] {
+    private func fetchPoints(criteria: Criteria) -> [Point] {
         let realm = try! Realm()
         var points = createEmptyPointArray()
 
-        let energyPoints = realm.objects(DataPoint.self).filter("criteria = %@ AND date > %@", String(Criteria.energy.rawValue), Date(timeInterval: -60*60*12, since: Date()))
+        let energyPoints = realm.objects(DataPoint.self).filter("criteria = %@ AND date > %@", String(criteria.rawValue), Date(timeInterval: -60*60*12, since: Date()))
         
         for point in energyPoints {
             let hourInterval = Int(point.date.timeIntervalSinceNow/(60*60))
